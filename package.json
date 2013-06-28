@@ -1,0 +1,30 @@
+{
+  "name": "Zenith",
+  "version": "0.1.0",
+  "description": "Zenith ESB - An ESB developed using Node.js",
+  "main": "zenith.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
+  },
+    
+  "contributors": [ 
+    {
+      "name": "Chamila Adhikarinayake",
+      "email": "cka.adhi@gmail.com"
+    } ,
+	{
+	  "name": "Gimantha Bandara",
+      "email": "gmnth.bndr@gmail.com"	
+	} ,
+	{
+	  "name": "Samitha Senarathna",
+      "email": "samithasenarathna@gmail.com"		
+	} ,
+	{
+	  "name": "Hasini Abeywickrama",
+      "email": "hvabey@gmail.com"	
+	}
+  ],
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
