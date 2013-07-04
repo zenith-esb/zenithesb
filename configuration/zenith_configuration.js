@@ -35,7 +35,7 @@ function callWebService(message, serviceURL, callback){
 		var endpoint = require('../lib/support/ws_endpoint');
 		
 		endpoint.callService(message, option, function(err,message){		
-			callback(null, message.body);		
+			callback(null, message);		
 		});	
 }
 
