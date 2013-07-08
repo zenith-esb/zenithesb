@@ -1,0 +1,7 @@
+{
+	"services":[
+	            {"serviceName":"DirectProxy", "wsdl":"proxy_wsdl.xml"},
+	            {"serviceName":"CBRProxy", "wsdl":"proxy_wsdl.xml"}	,
+	            {"serviceName":"XSLTProxy", "wsdl":"proxy_wsdl.xml"}
+	            ]
+}

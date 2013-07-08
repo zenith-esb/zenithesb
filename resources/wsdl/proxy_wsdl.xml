@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://services.samples/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://services.samples/xsd">
+    <wsdl:types>
+        <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://services.samples/xsd">
+            <xsd:complexType name="BuyStocks">
+                <xsd:sequence>
+                    <xsd:element name="order">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="symbol" type="xsd:string"/>
+                                <xsd:element name="buyerID" type="xsd:string"/>
+                                <xsd:element name="price" type="xsd:double"/>
+                                <xsd:element name="volume" type="xsd:int"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="buyStocks" type="tns:BuyStocks"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="EchoOperationRequest">
+        <wsdl:part name="parameters" element="tns:buyStocks"/>
+    </wsdl:message>
+    <wsdl:message name="EchoOperationResponse">
+        <wsdl:part name="parameters" element="tns:buyStocks"/>
+    </wsdl:message>
+    <wsdl:portType name="DirectProxyPortType">
+        <wsdl:operation name="buyStocksOperation1K1S">
+            <wsdl:input message="tns:EchoOperationRequest" wsaw:Action="urn:buyStocks.2.1"/>
+            <wsdl:output message="tns:EchoOperationResponse" wsaw:Action="http://services.samples/xsd/buyStocksPortType/message1K1S"/>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation5K">
+            <wsdl:input message="tns:EchoOperationRequest" wsaw:Action="urn:buyStocks.6"/>
+            <wsdl:output message="tns:EchoOperationResponse" wsaw:Action="http://services.samples/xsd/buyStocksPortType/message5K"/>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation1K5S">
+            <wsdl:input message="tns:EchoOperationRequest" wsaw:Action="urn:buyStocks.2.5"/>
+            <wsdl:output message="tns:EchoOperationResponse" wsaw:Action="http://services.samples/xsd/buyStocksPortType/message1K5S"/>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation500K1S">
+            <wsdl:input message="tns:EchoOperationRequest" wsaw:Action="urn:buyStocks.520.1"/>
+            <wsdl:output message="tns:EchoOperationResponse" wsaw:Action="http://services.samples/xsd/buyStocksPortType/message500K1S"/>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation5K1S">
+            <wsdl:input message="tns:EchoOperationRequest" wsaw:Action="urn:buyStocks.6.1"/>
+            <wsdl:output message="tns:EchoOperationResponse" wsaw:Action="http://services.samples/xsd/buyStocksPortType/message5K1S"/>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation500K5S">
+            <wsdl:input message="tns:EchoOperationRequest" wsaw:Action="urn:buyStocks.520.5"/>
+            <wsdl:output message="tns:EchoOperationResponse" wsaw:Action="http://services.samples/xsd/buyStocksPortType/message500K5S"/>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation">
+            <wsdl:input message="tns:EchoOperationRequest" wsaw:Action="urn:buyStocks"/>
+            <wsdl:output message="tns:EchoOperationResponse" wsaw:Action="http://services.samples/xsd/buyStocksPortType/message"/>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation1K">
+            <wsdl:input message="tns:EchoOperationRequest" wsaw:Action="urn:buyStocks.2"/>
+            <wsdl:output message="tns:EchoOperationResponse" wsaw:Action="http://services.samples/xsd/buyStocksPortType/message1K"/>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation10K1S">
+            <wsdl:input message="tns:EchoOperationRequest" wsaw:Action="urn:buyStocks.12.1"/>
+            <wsdl:output message="tns:EchoOperationResponse" wsaw:Action="http://services.samples/xsd/buyStocksPortType/message10K1S"/>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation100K5S">
+            <wsdl:input message="tns:EchoOperationRequest" wsaw:Action="urn:buyStocks.110.5"/>
+            <wsdl:output message="tns:EchoOperationResponse" wsaw:Action="http://services.samples/xsd/buyStocksPortType/message100K5S"/>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation10K5S">
+            <wsdl:input message="tns:EchoOperationRequest" wsaw:Action="urn:buyStocks.12.5"/>
+            <wsdl:output message="tns:EchoOperationResponse" wsaw:Action="http://services.samples/xsd/buyStocksPortType/message10K5S"/>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation500K">
+            <wsdl:input message="tns:EchoOperationRequest" wsaw:Action="urn:buyStocks.520"/>
+            <wsdl:output message="tns:EchoOperationResponse" wsaw:Action="http://services.samples/xsd/buyStocksPortType/message500K"/>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation100K">
+            <wsdl:input message="tns:EchoOperationRequest" wsaw:Action="urn:buyStocks.110"/>
+            <wsdl:output message="tns:EchoOperationResponse" wsaw:Action="http://services.samples/xsd/buyStocksPortType/message100K"/>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation5K5S">
+            <wsdl:input message="tns:EchoOperationRequest" wsaw:Action="urn:buyStocks.6.5"/>
+            <wsdl:output message="tns:EchoOperationResponse" wsaw:Action="http://services.samples/xsd/buyStocksPortType/message5K5S"/>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation100K1S">
+            <wsdl:input message="tns:EchoOperationRequest" wsaw:Action="urn:buyStocks.110.1"/>
+            <wsdl:output message="tns:EchoOperationResponse" wsaw:Action="http://services.samples/xsd/buyStocksPortType/message100K1S"/>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation10K">
+            <wsdl:input message="tns:EchoOperationRequest" wsaw:Action="urn:buyStocks.12"/>
+            <wsdl:output message="tns:EchoOperationResponse" wsaw:Action="http://services.samples/xsd/buyStocksPortType/message10K"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="DirectProxySoap11Binding" type="tns:DirectProxyPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="buyStocksOperation5K">
+            <soap:operation soapAction="urn:buyStocks.6" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation1K1S">
+            <soap:operation soapAction="urn:buyStocks.2.1" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation500K1S">
+            <soap:operation soapAction="urn:buyStocks.520.1" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation1K5S">
+            <soap:operation soapAction="urn:buyStocks.2.5" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation5K1S">
+            <soap:operation soapAction="urn:buyStocks.6.1" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation500K5S">
+            <soap:operation soapAction="urn:buyStocks.520.5" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation">
+            <soap:operation soapAction="urn:buyStocks" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation1K">
+            <soap:operation soapAction="urn:buyStocks.2" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation10K1S">
+            <soap:operation soapAction="urn:buyStocks.12.1" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation100K5S">
+            <soap:operation soapAction="urn:buyStocks.110.5" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation10K5S">
+            <soap:operation soapAction="urn:buyStocks.12.5" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation500K">
+            <soap:operation soapAction="urn:buyStocks.520" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation100K">
+            <soap:operation soapAction="urn:buyStocks.110" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation100K1S">
+            <soap:operation soapAction="urn:buyStocks.110.1" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation5K5S">
+            <soap:operation soapAction="urn:buyStocks.6.5" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation10K">
+            <soap:operation soapAction="urn:buyStocks.12" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="DirectProxySoap12Binding" type="tns:DirectProxyPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="buyStocksOperation5K">
+            <soap12:operation soapAction="urn:buyStocks.6" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation1K1S">
+            <soap12:operation soapAction="urn:buyStocks.2.1" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation500K1S">
+            <soap12:operation soapAction="urn:buyStocks.520.1" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation1K5S">
+            <soap12:operation soapAction="urn:buyStocks.2.5" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation5K1S">
+            <soap12:operation soapAction="urn:buyStocks.6.1" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation500K5S">
+            <soap12:operation soapAction="urn:buyStocks.520.5" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation">
+            <soap12:operation soapAction="urn:buyStocks" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation1K">
+            <soap12:operation soapAction="urn:buyStocks.2" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation10K1S">
+            <soap12:operation soapAction="urn:buyStocks.12.1" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation100K5S">
+            <soap12:operation soapAction="urn:buyStocks.110.5" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation10K5S">
+            <soap12:operation soapAction="urn:buyStocks.12.5" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation500K">
+            <soap12:operation soapAction="urn:buyStocks.520" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation100K">
+            <soap12:operation soapAction="urn:buyStocks.110" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation100K1S">
+            <soap12:operation soapAction="urn:buyStocks.110.1" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation5K5S">
+            <soap12:operation soapAction="urn:buyStocks.6.5" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation10K">
+            <soap12:operation soapAction="urn:buyStocks.12" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="DirectProxyHttpBinding" type="tns:DirectProxyPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="buyStocksOperation5K">
+            <http:operation location="buyStocksOperation5K"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation1K1S">
+            <http:operation location="buyStocksOperation1K1S"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation500K1S">
+            <http:operation location="buyStocksOperation500K1S"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation1K5S">
+            <http:operation location="buyStocksOperation1K5S"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation5K1S">
+            <http:operation location="buyStocksOperation5K1S"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation500K5S">
+            <http:operation location="buyStocksOperation500K5S"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation">
+            <http:operation location="buyStocksOperation"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation1K">
+            <http:operation location="buyStocksOperation1K"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation10K1S">
+            <http:operation location="buyStocksOperation10K1S"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation100K5S">
+            <http:operation location="buyStocksOperation100K5S"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation10K5S">
+            <http:operation location="buyStocksOperation10K5S"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation500K">
+            <http:operation location="buyStocksOperation500K"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation100K">
+            <http:operation location="buyStocksOperation100K"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation100K1S">
+            <http:operation location="buyStocksOperation100K1S"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation5K5S">
+            <http:operation location="buyStocksOperation5K5S"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyStocksOperation10K">
+            <http:operation location="buyStocksOperation10K"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="DirectProxy">
+        <wsdl:port name="DirectProxyHttpSoap11Endpoint" binding="tns:DirectProxySoap11Binding">
+            <soap:address location="http://Chamila-PC:8280/services/DirectProxy.DirectProxyHttpSoap11Endpoint"/>
+        </wsdl:port>
+        <wsdl:port name="DirectProxyHttpsSoap11Endpoint" binding="tns:DirectProxySoap11Binding">
+            <soap:address location="https://Chamila-PC:8243/services/DirectProxy.DirectProxyHttpsSoap11Endpoint"/>
+        </wsdl:port>
+        <wsdl:port name="DirectProxyHttpSoap12Endpoint" binding="tns:DirectProxySoap12Binding">
+            <soap12:address location="http://Chamila-PC:8280/services/DirectProxy.DirectProxyHttpSoap12Endpoint"/>
+        </wsdl:port>
+        <wsdl:port name="DirectProxyHttpsSoap12Endpoint" binding="tns:DirectProxySoap12Binding">
+            <soap12:address location="https://Chamila-PC:8243/services/DirectProxy.DirectProxyHttpsSoap12Endpoint"/>
+        </wsdl:port>
+        <wsdl:port name="DirectProxyHttpsEndpoint" binding="tns:DirectProxyHttpBinding">
+            <http:address location="https://Chamila-PC:8243/services/DirectProxy.DirectProxyHttpsEndpoint"/>
+        </wsdl:port>
+        <wsdl:port name="DirectProxyHttpEndpoint" binding="tns:DirectProxyHttpBinding">
+            <http:address location="http://Chamila-PC:8280/services/DirectProxy.DirectProxyHttpEndpoint"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

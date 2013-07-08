@@ -1,0 +1,9 @@
+{
+	"logLevel" : "DEBUG" ,
+
+	"configuration" : {
+		  				"appenders" : [
+		  				               { "type" : "console" }    		      	    
+		  				              ]
+		      		}
+}
