@@ -11,7 +11,7 @@ var loadtest = require('../samples/loadtest/direct_proxy');
 
 function mediate(message, callback){	
 
-	//run the pre defined sample. see ./sample
+	//run the pre defined sample. see ./samples dir
 	samples.executeSample(message, callback);
 	
 	//loadtest.executeTest(message, callback);
