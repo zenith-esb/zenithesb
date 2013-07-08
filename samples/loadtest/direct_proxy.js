@@ -4,10 +4,10 @@
  * add the name of the WSDL and the service name
  * to  configuration/service_config.json
  */
+var SUPPORT_LIBS = '../../lib/support/';
+var logger = require('../../lib/logger'); 
 
-var logger = require('../../../lib/logger'); 
-
-exports.doMediation = function(zenithMessage, callback){
+exports.executeTest = function(zenithMessage, callback){
 	
 	var serviceURL = 'http://localhost:9000/service/EchoService';
 	var pathName = zenithMessage.transportHeaders.url.pathname;
@@ -17,11 +17,10 @@ exports.doMediation = function(zenithMessage, callback){
 	if(pathName === '/services/DirectProxy'){
 		
 		var option = {
-				url : serviceURL//'http://localhost:9000/services/SimpleStockQuoteService'
-					//'http://localhost:9000/service/EchoService'
+				url : serviceURL
 			};
 				
-			var endpoint = require('../../../lib/support/ws_endpoint');
+		var endpoint = require(SUPPORT_LIBS + 'ws_endpoint');
 			
 			endpoint.callService(zenithMessage, option, function(err,message){		
 				callback(null, message);		
