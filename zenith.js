@@ -25,6 +25,7 @@ if (cluster.isMaster) {
     var cpuCount = require('os').cpus().length;
     logger.info('Zenith', 'Starting process(es) on ' + cpuCount +
     		' core(s)');
+    		
     // Create a worker for each CPU
     for (var i = 0; i < cpuCount; i += 1) {
         cluster.fork();
