@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
   },
-    
+  "dependencies": {
+	    "libxmljs": "0.8.1"
+	  },
   "contributors": [ 
     {
       "name": "Chamila Adhikarinayake",
