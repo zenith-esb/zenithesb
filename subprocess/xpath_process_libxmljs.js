@@ -1,10 +1,4 @@
 /**
- * New node file
- */
-var libxmljs = require("libxmljs");
-var msgq = [];
-
-/**
  * 
  * this is a sub process of Zenith server. Currently it accepts a message in
  * following format
@@ -13,6 +7,10 @@ var msgq = [];
  * And evaluates the regular expression on the element located by xpath
  * if it matches the expression returns object contains the result
  */
+
+var libxmljs = require("libxmljs");
+var msgq = [];
+
 
 process.on('message', function(m) {	
 	        //
