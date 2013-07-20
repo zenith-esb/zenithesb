@@ -1,4 +1,8 @@
 {
-	"httpServerConfig" : { "port": "8280" }
+	"transports" : [
+	         {"module" : "http_transport", 
+	          "config" : {"port" : "8280"}
+	         }            
+	 ]
 }
 
