@@ -2,7 +2,10 @@
 	"transports" : [
 	         {"module" : "http_transport", 
 	          "config" : {"port" : "8280"}
-	         }            
+	         } ,
+	         {"module" : "https_transport", 
+		      "config" : {"port" : "8243"}
+		     }    
 	 ]
 }
 
