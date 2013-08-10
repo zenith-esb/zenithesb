@@ -1,13 +1,13 @@
 /**
- * Message mediation scenario. Send the message defined in the SOAP
- * WS-Addressing EPR value.
+ * Message Proxy scenario. Send the message to the user defined
+ * serviceURL address.
  */
 
 var SUPPORT_LIBS = '../lib/support/';
 var logger = require('../lib/logger');
 
 exports.executeSample = function(zenithMessage, callback){
-	//@TODO path name should be extracted from the SOAP header
+	
 	var serviceURL = 'http://localhost:9000/services/SimpleStockQuoteService';
 	logger.debug('SampleConfig', 'EPR: ' + serviceURL);
 	
