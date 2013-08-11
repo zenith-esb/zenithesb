@@ -5,21 +5,46 @@
 
 var SUPPORT_LIBS = '../lib/support/';
 var logger = require('../lib/logger');
+var saxProcessor = require(SUPPORT_LIBS + 'xml/sax_processor');
 
 exports.executeSample = function(zenithMessage, callback){
-	//@TODO path name should be extracted from the SOAP header
-	var serviceURL = 'http://localhost:9000/services/SimpleStockQuoteService';
-	logger.debug('SampleConfig', 'EPR: ' + serviceURL);
+
+	var serviceURL; 	
 	
-	var pathName = zenithMessage.transportHeaders.url.pathname;
+	//this defines the header field values in the soap message.	
+	var soapHeaderElement = 'To';
+	var soapHeaderElementNmSpcURI = 'http://www.w3.org/2005/08/addressing';
 	
-	var option = {
-			url : serviceURL
-		};
+	
+	var saxProcessor = require(SUPPORT_LIBS + 'xml/sax_processor');
+	
+	saxProcessor.getElementValue(zenithMessage.body, 
+			soapHeaderElementNmSpcURI, soapHeaderElement, function(err, value){
+				
+		if(err == null){ // no error	
+			serviceURL = value[0];
+			logger.debug('SampleConfig', 'EPR: ' + serviceURL);			
 			
-	var endpoint = require(SUPPORT_LIBS + 'ws_endpoint');
+			var option = {
+					url : serviceURL
+				};
+						
+			var endpoint = require(SUPPORT_LIBS + 'ws_endpoint');
+				
+			endpoint.callService(zenithMessage, option, function(err,message){		
+					callback(null, message);		
+			});	
+				
+				
+				
+		} else {
+				//set the message body to the error message
+				var errMsg = 'EPR value is not defined.'; 
+				zenithMessage.body = soapErrorMsg.getSOAP11Fault(errMsg);
+				callback(null, zenithMessage);
+		}
 		
-	endpoint.callService(zenithMessage, option, function(err,message){		
-			callback(null, message);		
-		});	
+		
+	});
+	
 }
