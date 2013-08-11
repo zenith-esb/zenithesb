@@ -11,8 +11,6 @@ exports.executeSample = function(zenithMessage, callback){
 	var serviceURL = 'http://localhost:9000/services/SimpleStockQuoteService';
 	logger.debug('SampleConfig', 'EPR: ' + serviceURL);
 	
-	var pathName = zenithMessage.transportHeaders.url.pathname;
-	
 	var option = {
 			url : serviceURL
 		};
