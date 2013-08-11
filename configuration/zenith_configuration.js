@@ -5,15 +5,21 @@
  * back to the request
  */
 
+var SAMPLE_NO = '2';
 var logger = require('../lib/logger');
-var samples = require('../samples/sample_1');
-var loadtest = require('../samples/loadtest/direct_proxy');
+var samples = require('../samples/sample_' + SAMPLE_NO);
+var loadtest;
+//sample load testing scenarios
+//loadtest = require('../samples/loadtest/direct_proxy');
+//loadtest = require('../samples/loadtest/cbr_transportheader_proxy');
+//loadtest = require('../samples/loadtest/cbr_soapheader_proxy');
 
 function mediate(message, callback){	
 
 	//run the pre defined sample. see ./samples dir
 	samples.executeSample(message, callback);
-	
+
+	//run the load testing scenario
 	//loadtest.executeTest(message, callback);
 	
 	
