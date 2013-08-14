@@ -1,0 +1,51 @@
+!!! 5
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/monitor.css')
+    title Zenith SysInfo
+    script(src='js/jquery.js')
+    script(src='js/highcharts.js')
+    script(src='js/exporting.js')
+    script(src='/js/monitor_access.js')
+    script.
+      $(function () {
+      $(document).ready(function() {
+        drawGraph();
+        setValues();
+      });
+      });
+  body
+    #page
+      #header
+        #dashbord
+          | Dashboard
+        #zenith
+          | Zenith
+      #leftframe
+        a(href='#{url}')
+          div System Status
+        a(href='#{url}'+'/requestInfo')
+          div ESB Status
+      #rightframe
+        div
+          p.topics System Information
+          table.table
+            tr
+              td Platform
+              td #{sysinfo.platform}
+            tr
+              td Type
+              td #{sysinfo.type}
+            tr
+              td Hostname
+              td #{sysinfo.hostname}
+            tr
+              td Memory
+              td #{sysinfo.memory}
+          br
+          p.topics Total Memory Usage
+          #container(style='width: 700px; height:300px; postion:relative; left:0; margin: 0')
+          br
+          p.topics Heap Memory
+          #psgrapgh(style='width: 700px; height:300px; postion:relative; left:0; margin: 0')

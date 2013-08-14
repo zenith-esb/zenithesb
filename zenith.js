@@ -8,6 +8,7 @@ var transportFactory = require('./lib/transport/transport_factory');
 var messageFormatter = new MessageFormatter();
 var serverConfig = require('./configuration/server_config');
 var TRANSPORT_PATH = './lib/transport/';
+var app = require('./lib/monitor/app.js')
 
 
 
@@ -47,7 +48,9 @@ function startZenithESB(){
 	var transports = transportFactory.getTransport(messageFormatter);
 	//starting transports
 	for(x in transports){
-		transports[x].start();
+		var server = transports[x].start();
+		app.monitor.Monitor(server,{'collect_all': 'yes', 'top':{'view':3,'limit':100, 'timelimit':1, 'sortby': 'max_time'}});//add server to monitor
 	}
+	app.startDashBoard();
 	
 }
