@@ -6,6 +6,8 @@
 
 var SUPPORT_LIBS = '../lib/support/';
 var logger = require('../lib/logger');
+var soapErrorMsg = require('../lib/util/errormsg');
+
 var saxProcessor = require(SUPPORT_LIBS + 'xml/sax_processor');
 
 exports.executeSample = function(zenithMessage, callback){

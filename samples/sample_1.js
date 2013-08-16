@@ -5,7 +5,7 @@
 
 var SUPPORT_LIBS = '../lib/support/';
 var logger = require('../lib/logger');
-
+var soapErrorMsg = require('../lib/util/errormsg');
 
 exports.executeSample = function(zenithMessage, callback){
 	var reqUrl = zenithMessage.transportHeaders.url; //returns url object
@@ -24,6 +24,11 @@ exports.executeSample = function(zenithMessage, callback){
 		endpoint.callService(zenithMessage, option, function(err,message){		
 				callback(null, message);		
 			});	
+		
+	} else {
+		var errMsg = 'Invalid EPR value.'; 
+		zenithMessage.body = soapErrorMsg.getSOAP11Fault(errMsg);
+		callback(null, zenithMessage);
 		
 	}
 	
