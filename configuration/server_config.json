@@ -4,7 +4,9 @@
 	          "config" : {"port" : "8280"}
 	         } ,
 	         {"module" : "https_transport", 
-		      "config" : {"port" : "8243"}
+		      "config" : {"port" : "8243",
+		    	  		  "cert" : "resources/security/zenith-cert.pem",
+		    	  		  "key"  : "resources/security/zenith-key.pem"}
 		     }    
 	 ]
 }
