@@ -6,18 +6,25 @@
 var SUPPORT_LIBS = '../lib/support/';
 var logger = require('../lib/logger');
 
+
 exports.executeSample = function(zenithMessage, callback){
-	
-	var serviceURL = 'http://localhost:9000/services/SimpleStockQuoteService';
-	logger.debug('SampleConfig', 'EPR: ' + serviceURL);
-	
-	var option = {
-			url : serviceURL
-		};
-			
-	var endpoint = require(SUPPORT_LIBS + 'ws_endpoint');
+	var reqUrl = zenithMessage.transportHeaders.url; //returns url object
+
+	if(reqUrl.pathname === '/services/StockQuoteProxy'){
 		
-	endpoint.callService(zenithMessage, option, function(err,message){		
-			callback(null, message);		
-		});	
+		var serviceURL = 'http://localhost:9000/services/SimpleStockQuoteService';
+		logger.debug('SampleConfig', 'EPR: ' + serviceURL);
+		
+		var option = {
+				url : serviceURL
+			};
+				
+		var endpoint = require(SUPPORT_LIBS + 'ws_endpoint');
+			
+		endpoint.callService(zenithMessage, option, function(err,message){		
+				callback(null, message);		
+			});	
+		
+	}
+	
 }
