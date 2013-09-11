@@ -12,7 +12,7 @@ var logger = require('../lib/logger');
 var event = require(SUPPORT_LIBS + 'event');
 exports.executeSample = function(zenithMessage, callback){
 
-	var topic = 'com.chamila';
+	var topic = '09.cse.uom';
 	event.publish(topic, zenithMessage, callback);
 
 }
