@@ -8,6 +8,13 @@
 		    	  		  "cert" : "resources/security/zenith-cert.pem",
 		    	  		  "key"  : "resources/security/zenith-key.pem"}
 		     }    
-	 ]
+	 ],
+	 
+	 "_comments_amqp" : "To turn off the amqp messaging feature, set 'status' to false. parameters for 'server' can be found in https://github.com/postwait/node-amqp#connection-options-and-url",
+	 		           
+	 "amqp" : {
+		 "status" : "true",
+		 "server" : {"host" : "localhost"}		 
+	 }
 }
 
