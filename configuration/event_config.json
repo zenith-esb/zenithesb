@@ -2,20 +2,19 @@
 	"_comment" : "This file contains binding key to a topic and the subscribers for that topic. eventSubscribers is an array containg binding info array item has objects with binding string element and subscribers address array. more info on binding key can be found at http://www.rabbitmq.com/tutorials/tutorial-five-java.html",
 	
 	"eventSubscribers" : [
-	                      {"bindingKey" : "*.cse.*" , 
+	                      {"bindingKey" : "station.gampaha" , 
 	                      
 	                       "subscribers" : [
-	                                 "http://192.168.105.101:9999/message",
-	                                 "http://192.168.105.102:9999/message" 
+	                                 "http://192.168.105.101:9999/message"
 	                                        ]
 	                    	  
 	                    	  
 	                       				
 	                      },
-	                      {"bindingKey" : "09.#" , 
+	                      {"bindingKey" : "station.fort" , 
 		                       
 	                       "subscribers" : [
-	                                 "http://192.168.105.101:9999/message",
+	                             
 	                                 "http://192.168.105.102:9999/message" 
 		                                    ]
 		                  }
