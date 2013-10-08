@@ -6,7 +6,7 @@
 
 var SUPPORT_LIBS = '../lib/support/';
 var logger = require('../lib/logger');
-var soapErrorMsg = require('../lib/util/errormsg');
+var soapErrorMsg = require('../lib/util/errormsg/soap_err_msg');
 
 var saxProcessor = require(SUPPORT_LIBS + 'xml/sax_processor');
 

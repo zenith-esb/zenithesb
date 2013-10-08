@@ -7,7 +7,7 @@
 
 var SUPPORT_LIBS = '../lib/support/';
 var logger = require('../lib/logger');
-//var soapErrorMsg = require('../lib/util/errormsg');
+var soapErrorMsg = require('../lib/util/errormsg/soap_err_msg');
 
 var event = require(SUPPORT_LIBS + 'event');
 exports.executeSample = function(zenithMessage, callback){

@@ -5,7 +5,7 @@
 
 var SUPPORT_LIBS = '../lib/support/';
 var logger = require('../lib/logger');
-//var soapErrorMsg = require('../lib/util/errormsg');
+var soapErrorMsg = require('../lib/util/errormsg/soap_err_msg');
 
 exports.executeSample = function(zenithMessage, callback){
 	var reqUrl = zenithMessage.transportHeaders.url; //returns url object
