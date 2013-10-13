@@ -5,7 +5,7 @@
 	                      {"bindingKey" : "station.gampaha" , 
 	                      
 	                       "subscribers" : [
-	                                 "http://192.168.105.101:9999/message"
+	                                 "http://localhost:9999/message"
 	                                        ]
 	                    	  
 	                    	  
@@ -15,9 +15,16 @@
 		                       
 	                       "subscribers" : [
 	                             
-	                                 "http://192.168.105.102:9999/message" 
+	                                 "http://localhost:9999/message" 
 		                                    ]
-		                  }
+		                  },
+		                  {"bindingKey" : "#" , 
+		                       
+		                       "subscribers" : [
+		                             
+		                                 "http://localhost:9999/message" 
+			                                    ]
+			               }
 	
 	
 				]
