@@ -19,7 +19,7 @@ exports.executeSample = function(zenithMessage, callback){
 
 	if(reqUrl.pathname === '/message/All'){
 		
-		topic = 'station.';
+		topic = 'station.*';
 		event.publish(topic, zenithMessage, callback);
 		
 	} else if(reqUrl.pathname === '/message/Fort'){
