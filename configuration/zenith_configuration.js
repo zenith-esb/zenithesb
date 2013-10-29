@@ -5,7 +5,7 @@
  * back to the request
  */
 
-var SAMPLE_NO = '4';
+var SAMPLE_NO = '5';
 var logger = require('../lib/logger');
 var samples = require('../samples/sample_' + SAMPLE_NO);
 var loadtest;

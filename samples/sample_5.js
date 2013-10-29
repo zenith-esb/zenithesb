@@ -27,12 +27,12 @@ exports.executeSample = function(zenithMessage, callback) {
 		var xsltFile_back = XSLT_RES + 'transform_back.xslt';
 
 		var transformedMsg = xslt
-				.transformMsg(zenithMessage.body, xsltFile, []);
+				.transformXML(zenithMessage.body, xsltFile, []);
 		zenithMessage.body = transformedMsg;
 
 		endpoint.callService(zenithMessage, option, function(err, message) {
 
-			var transformedBckMsg = xslt.transformMsg(message, xsltFile_back,
+			var transformedBckMsg = xslt.transformXML(message, xsltFile_back,
 					[]);
 			callback(null, transformedBckMsg);
 		});
