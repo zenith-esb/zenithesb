@@ -1,5 +1,6 @@
 /**
- * XSLT transformation scenario
+ * XSLT transformation scenario - transform the soap body so that the service can understand 
+ * the request and client the response
  */
 
 var SUPPORT_LIBS = '../lib/support/';
