@@ -22,23 +22,31 @@ exports.executeSample = function(zenithMessage, callback) {
 
 		var endpoint = require(SUPPORT_LIBS + 'ws_endpoint');
 		var xslt = require(SUPPORT_LIBS + 'xml/xslt_processor');
-
+		var saxProcessor = require(SUPPORT_LIBS + 'xml/sax_processor');
+		
 		var xsltFile = XSLT_RES + 'transform.xslt';
 		var xsltFile_back = XSLT_RES + 'transform_back.xslt';
-		console.log('hghghghghgh'+zenithMessage.body);
+		
+		//transform soap body to something that the real service can understand
 		var transformedMsg = xslt
 				.transformXML(zenithMessage.body, xsltFile, []);
+		
+		// create the soap message using original soap headers and transformed soap body
+		saxProcessor.getTransformedSOAP(zenithMessage.body, transformedMsg, function(err, transformedSOAP){
+			
+			zenithMessage.body = transformedSOAP;
+			endpoint.callService(zenithMessage, option, function(err, message) { 
 
-		zenithMessage.body = transformedMsg;
-
-		endpoint.callService(zenithMessage, option, function(err, message) {
-
-			var transformedBckMsg = xslt.transformXML(message, xsltFile_back, []);
-
-			callback(null, transformedBckMsg);
-			// callback(null, message);
-
+				// transformed the response so that the client can understand the format.
+				var transformedBckMsg = xslt.transformXML(message.body, xsltFile_back, []);
+		
+				saxProcessor.getTransformedSOAP(message.body, transformedBckMsg, function(err, transformedBckSOAP){
+					message.body = transformedBckSOAP;
+					callback(null, message);
+				});
+			});
 		});
+		
 
 	} else {
 		var errMsg = 'Invalid EPR value.';
