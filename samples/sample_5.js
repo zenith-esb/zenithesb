@@ -6,8 +6,8 @@
 var SUPPORT_LIBS = '../lib/support/';
 var XSLT_RES = './resources/xslt/';
 var logger = require('../lib/logger');
-
 var soapErrorMsg = require('../lib/util/errormsg/soap_err_msg');
+var zenithErrorMsg = require('../lib/util/errormsg/zenith_err_msg');
 
 exports.executeSample = function(zenithMessage, callback) {
 	var reqUrl = zenithMessage.transportHeaders.url; // returns url object
@@ -37,22 +37,33 @@ exports.executeSample = function(zenithMessage, callback) {
 			
 			zenithMessage.body = transformedSOAP;
 			endpoint.callService(zenithMessage, option, function(err, message) { 
-
-				// transformed the response so that the client can understand the format.
-				var transformedBckMsg = xslt.transformXML(message.body, xsltFile_back, []);
-		
-				saxProcessor.getTransformedSOAP(message.body, transformedBckMsg, function(err, transformedBckSOAP){
-					message.body = transformedBckSOAP;
-					callback(null, message);
-				});
+				
+				if(!err){
+					// transformed the response so that the client can understand the format.
+					var transformedBckMsg = xslt.transformXML(message.body, xsltFile_back, []);
+			
+					saxProcessor.getTransformedSOAP(message.body, transformedBckMsg, function(err, transformedBckSOAP){
+						message.body = transformedBckSOAP;
+						callback(null, message);
+					});
+					
+				} else {
+					//send error message for external web service error
+					//can create more detailed errors by reading fields in 'err' object
+					var errMsg = soapErrorMsg.getSOAP11Fault('Connection Refused.'); 
+					var errZenithMessage = zenithErrorMsg.getZenithErrorMSG(errMsg, 'text/xml', '503');
+					callback(null, errZenithMessage);
+				}
+				
 			});
 		});
 		
 
 	} else {
-		var errMsg = 'Invalid EPR value.';
-		zenithMessage.body = soapErrorMsg.getSOAP11Fault(errMsg);
-		callback(null, zenithMessage);
+		
+		var errMsg = oapErrorMsg.getSOAP11Fault('Invalid EPR value.'); 
+		var errZenithMessage = zenithErrorMsg.getZenithErrorMSG(errMsg, 'text/xml', '500');
+		callback(null, errZenithMessage);
 
 	}
 
