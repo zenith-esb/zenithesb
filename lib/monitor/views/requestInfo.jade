@@ -1,4 +1,5 @@
 html
+  title Zenith ESB Monitor
   head
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     link(rel='stylesheet', type='text/css', href='/stylesheets/monitor.css')
@@ -13,15 +14,21 @@ html
   body
     #page
       #header
-        #dashbord
-          | Dashboard
         #zenith
-          | Zenith
+          img(src='images/z3.png')
       #leftframe
-        a(href='#{url}')
-          div System Status
-        a(href='#{url}'+'/requestInfo')
-          div ESB Status
+        a(href='sysInfo')
+          div.link System Status
+        a(href='/requestInfo')
+          div.link ESB Status
+        ul 
+          div.link Configurations
+          li 
+            a(href='/serverConfig')
+              div.link Server Configuration
+          li
+            a(href='/eventConfig')
+              div.link Events Configuration
       #rightframe
         div
           table#gradient-style(summary='Meeting Results')
