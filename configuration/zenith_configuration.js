@@ -13,14 +13,15 @@ var loadtest;
 //loadtest = require('../samples/loadtest/direct_proxy');
 //loadtest = require('../samples/loadtest/cbr_transportheader_proxy');
 //loadtest = require('../samples/loadtest/cbr_soapheader_proxy');
+loadtest = require('../samples/loadtest/xslt_proxy');
 
 function mediate(message, callback){	
 
 	//run the pre defined sample. see ./samples dir
-	samples.executeSample(message, callback);
+	//samples.executeSample(message, callback);
 
 	//run the load testing scenario
-	//loadtest.executeTest(message, callback);
+	loadtest.executeTest(message, callback);
 	
 	
 }
