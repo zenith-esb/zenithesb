@@ -27,12 +27,13 @@ exports.executeTest = function(zenithMessage, callback) {
 		var saxProcessor = require(SUPPORT_LIBS + 'xml/sax_processor');
 		
 		//files for transforming and transforming back the requests and responses respectively.
-		var xsltFile = XSLT_RES + 'transform_env.xslt';
-		var xsltFile_back = XSLT_RES + 'transform_env_reverse.xslt';
+		var xsltFile = XSLT_RES + 'transform_env_reverse.xslt';
+		var xsltFile_back = XSLT_RES + 'transform_env.xslt';
 		
 		//transform soap body to something that the real service can understand
 		var transformedMsg = xslt
 				.transformXML(zenithMessage.body, xsltFile, []);
+		
 		
 		// create the soap message using original soap headers and transformed soap body
 		saxProcessor.getTransformedSOAP(zenithMessage.body, transformedMsg, function(err, transformedSOAP){
@@ -43,8 +44,9 @@ exports.executeTest = function(zenithMessage, callback) {
 				if(!err){
 					// transformed the response so that the client can understand the format.
 					var transformedBckMsg = xslt.transformXML(message.body, xsltFile_back, []);
-			
+					
 					saxProcessor.getTransformedSOAP(message.body, transformedBckMsg, function(err, transformedBckSOAP){
+						logger.debug('XSLTProxy','Response :'+transformedBckSOAP);
 						message.body = transformedBckSOAP;
 						callback(null, message);
 					});
