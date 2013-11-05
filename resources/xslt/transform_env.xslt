@@ -4,10 +4,10 @@
 
 <xsl:template match="m0:skcotSyub">
 
-<m:buyStocks xmlns:m="http://services.samples/xsd">
+<m0:buyStocks xmlns:m0="http://services.samples/xsd">
 <xsl:for-each select="redro">
 <order><symbol><xsl:value-of select="lobmys"/></symbol><buyerID><xsl:value-of select="DIreyub"/></buyerID><price><xsl:value-of select="ecirp"/></price><volume><xsl:value-of select="emulov"/></volume></order>
 </xsl:for-each>
-</m:buyStocks>
+</m0:buyStocks>
 </xsl:template>        
 </xsl:stylesheet>
