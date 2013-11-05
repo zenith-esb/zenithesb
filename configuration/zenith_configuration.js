@@ -8,11 +8,7 @@
 var SAMPLE_NO = '5';
 var logger = require('../lib/logger');
 var samples = require('../samples/sample_' + SAMPLE_NO);
-var loadtest;
-//sample load testing scenarios
-//loadtest = require('../samples/loadtest/direct_proxy');
-//loadtest = require('../samples/loadtest/cbr_transportheader_proxy');
-//loadtest = require('../samples/loadtest/cbr_soapheader_proxy');
+//var loadtest =  require('../samples/loadtest/loadtest');;
 
 function mediate(message, callback){	
 
