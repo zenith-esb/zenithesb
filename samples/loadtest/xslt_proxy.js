@@ -26,6 +26,7 @@ exports.executeTest = function(zenithMessage, callback) {
 		var xslt = require(SUPPORT_LIBS + 'xml/xslt_processor');
 		var saxProcessor = require(SUPPORT_LIBS + 'xml/sax_processor');
 		
+		//files for transforming and transforming back the requests and responses respectively.
 		var xsltFile = XSLT_RES + 'transform_env.xslt';
 		var xsltFile_back = XSLT_RES + 'transform_env_reverse.xslt';
 		
