@@ -46,6 +46,7 @@ exports.executeTest = function(zenithMessage, callback) {
 					var transformedBckMsg = xslt.transformXML(message.body, xsltFile_back, []);
 					
 					saxProcessor.getTransformedSOAP(message.body, transformedBckMsg, function(err, transformedBckSOAP){
+						logger.debug('XSLTProxy','Response :'+transformedBckSOAP);
 						message.body = transformedBckSOAP;
 						callback(null, message);
 					});

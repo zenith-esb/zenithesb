@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:m0="http://services.samples/xsd" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-<xsl:output method="xml" omit-xml-declaration="yes" indent="no" exclude-result-prefixes="m0"/>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:m="http://services.samples/xsd" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+<xsl:output method="xml" omit-xml-declaration="yes" indent="no" exclude-result-prefixes="m"/>
 
-<xsl:template match="m0:buyStocks">
+<xsl:template match="m:buyStocks">
 
 <m:skcotSyub xmlns:m="http://services.samples/xsd">
 <xsl:for-each select="order">
