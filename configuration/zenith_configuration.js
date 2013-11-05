@@ -8,15 +8,17 @@
 var SAMPLE_NO = '5';
 var logger = require('../lib/logger');
 var samples = require('../samples/sample_' + SAMPLE_NO);
+
 //var loadtest =  require('../samples/loadtest/loadtest');;
+
 
 function mediate(message, callback){	
 
 	//run the pre defined sample. see ./samples dir
-	samples.executeSample(message, callback);
+	//samples.executeSample(message, callback);
 
 	//run the load testing scenario
-	//loadtest.executeTest(message, callback);
+	loadtest.executeTest(message, callback);
 	
 	
 }
