@@ -5,6 +5,7 @@
  * to  configuration/service_config.json
  */
 var cbrRoute = require('../../lib/support/cbr_route');
+var SUPPORT_LIBS = '../../lib/support/';
 
 exports.executeTest = function(zenithMessage, callback){
 	
@@ -12,7 +13,7 @@ exports.executeTest = function(zenithMessage, callback){
 	var pathName = zenithMessage.transportHeaders.url.pathname;
 	
 	
-	//direct proxy
+	//CBRProxy
 	if(pathName === '/services/CBRProxy'){
 		
 		var option = {
