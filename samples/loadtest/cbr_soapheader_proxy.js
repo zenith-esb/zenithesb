@@ -1,5 +1,5 @@
 /**
- * Sample configuration for direct proxy scenario
+ * Sample configuration for CBRHeader proxy scenario
  * WSDL file should be added to resources/wsdl.
  * add the name of the WSDL and the service name
  * to  configuration/service_config.json
