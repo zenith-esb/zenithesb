@@ -5,7 +5,7 @@ var SUPPORT_LIBS = '../../lib/support/';
 var soapErrorMsg = require('../../lib/util/errormsg/soap_err_msg');
 var zenithErrorMsg = require('../../lib/util/errormsg/zenith_err_msg');
 var logger = require('../../lib/logger'); 
-
+var cbrRoute = require('../../lib/support/cbr_route');
 
 
 exports.executeTest = function(zenithMessage, callback){
@@ -41,7 +41,8 @@ exports.executeTest = function(zenithMessage, callback){
 	}
 	
 	
-}
+};
+
 /**
  * direct proxy
  * @param zenithMessage
@@ -69,6 +70,17 @@ function directProxy(zenithMessage, serviceURL, callback){
  */
 function cbrProxy(zenithMessage, serviceURL, callback){
 	
+	var option = {
+			url : serviceURL
+		};
+	cbrRoute.CBRSOAPBodyRoute(zenithMessage.body, '//order/symbol','IBM', function(){
+		
+		var endpoint = require(SUPPORT_LIBS + 'ws_endpoint');
+		
+		endpoint.callService(zenithMessage, option, function(err,message){		
+			callback(null, message);		
+		});	
+	});
 }
 
 /**
