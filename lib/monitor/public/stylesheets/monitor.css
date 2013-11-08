@@ -14,6 +14,24 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#1d64d6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
 }
+#minibar1{
+	width: 16%; 
+	float: left;
+	margin-left:2%;
+	height: 13px;
+	background-color: #E1E7EB;
+	
+}
+#minibar2{
+	width: 80%; 
+	float: left;
+	margin-right:2%;
+	height: 10px;
+	background-color: #E1E7EB;
+	border-bottom:3px solid #B5C1C9;
+	
+}
+
 #zenith{
 	font-family:fantasy,cursive;
 	font-size:70px;
@@ -40,18 +58,24 @@
 	margin-right: 20px;
 }
 #leftframe{
-	width: 15%; 
-	margin:2%;
+	width: 15%;
+	margin-left:2%;
+	padding-top:20px;
+	padding-left:5px;
+	padding-right:5px;
+	padding-bottom:20px;
 	float: left;
-	float: left;
-	background-color:#C5D8FB;
-    border: 2px solid #546E9C;
-	
+	background-color: #E1E7EB;
+	border:3px solid #B5C1C9;
+	border-left:0;
+	border-top:0;
+	border-radius:2px;
 }
 #rightframe{
+	padding-top:20px;
+	padding-left:20px;
 	float: left;
-	margin: 2%;
-	width: 70%;
+	width: 78%;
 }
 #page{
 	width:100%;
@@ -65,9 +89,11 @@ a{
 
 .topics{
 	font-family:sans-serif;
-	font-size:20px;	
+	font-size:15px;	
 	color:#233F73;
 	margin-top: 0;
+	background-color: #F0F0F0;
+	border:1px solid #B5C1C9;: 
 }
 
 .table{
@@ -104,7 +130,7 @@ td{
 	border-bottom: 1px solid #fff;
 	color: #233F73;
 	border-top: 1px solid #fff;
-	background: #C5D8FB url('table-images/gradback.png') repeat-x;
+	background: #f2f2f2 url('table-images/gradback.png') repeat-x;
 }
 #gradient-style tfoot tr td
 {
@@ -114,7 +140,7 @@ td{
 }
 #gradient-style tbody tr:hover td
 {
-	background: #f2f2f2 url('table-images/gradhover.png') repeat-x;
+	background:#C5D8FB url('table-images/gradhover.png') repeat-x;
 	color: #339;
 }
 
