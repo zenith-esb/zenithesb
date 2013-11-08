@@ -11,18 +11,29 @@ html
         getRquestInfo();
       });
       });
+      function makeVisible(id){
+        var elm= document.getElementById(id);
+        if(elm.style.display=='none'){
+          elm.style.display='block';
+        }
+        else{
+          elm.style.display='none';
+        }       
+      }
   body
     #page
       #header
         #zenith
           img(src='images/z3.png')
+      #minibar1
+      #minibar2
       #leftframe
         a(href='sysInfo')
           div.link System Status
         a(href='/requestInfo')
           div.link ESB Status
-        ul 
-          div.link Configurations
+        div.link(onClick='makeVisible("configOp");')|Configurations
+        ul#configOp 
           li 
             a(href='/serverConfig')
               div.link Server Configuration
@@ -35,6 +46,9 @@ html
           li
             a(href='/proxyConfig')
               div.link Proxy Configuration
+          li
+            a(href='/zenithConfig')
+              div.link Zenith Configuration
       #rightframe
         div
           table#gradient-style(summary='Meeting Results')
