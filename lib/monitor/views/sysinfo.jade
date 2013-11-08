@@ -31,49 +31,50 @@ html
         #zenith
           img(src='images/z3.png')
       #minibar1
-      #minibar2
-      #leftframe
-        a(href='sysInfo')
-          div.link System Status
-        a(href='/requestInfo')
-          div.link ESB Status
-        div.link(onClick='makeVisible("configOp");')|Configurations
-        ul#configOp 
-          li 
-            a(href='/serverConfig')
-              div.link Server Configuration
-          li
-            a(href='/eventConfig')
-              div.link Events Configuration
-          li
-            a(href='/logConfig')
-              div.link Log Configuration
-          li
-            a(href='/proxyConfig')
-              div.link Proxy Configuration
-          li
-            a(href='/zenithConfig')
-              div.link Zenith Configuration
-              
-      #rightframe
-        div
-          p.topics System Information
-          table.table
-            tr
-              td Platform
-              td #{sysinfo.platform}
-            tr
-              td Type
-              td #{sysinfo.type}
-            tr
-              td Hostname
-              td #{sysinfo.hostname}
-            tr
-              td Memory
-              td #{sysinfo.memory}
-          br
-          p.topics Total Memory Usage
-          #container(style='width: 700px; height:300px; postion:relative; left:0; margin: 0')
-          br
-          p.topics Heap Memory
-          #psgrapgh(style='width: 700px; height:300px; postion:relative; left:0; margin: 0')
+      #main
+        #leftframe
+          a(href='sysInfo')
+            div.link System Status
+          a(href='/requestInfo')
+            div.link ESB Status
+          div.link(onClick='makeVisible("configOp");')|Configurations
+          ul#configOp 
+            li 
+              a(href='/serverConfig')
+                div.link Server Configuration
+            li
+              a(href='/eventConfig')
+                div.link Events Configuration
+            li
+              a(href='/logConfig')
+                div.link Log Configuration
+            li
+              a(href='/proxyConfig')
+                div.link Proxy Configuration
+            li
+              a(href='/zenithConfig')
+                div.link Zenith Configuration
+                
+        #rightframe
+          div
+            p.topics System Information
+            table.table
+              tr
+                td Platform
+                td #{sysinfo.platform}
+              tr
+                td Type
+                td #{sysinfo.type}
+              tr
+                td Hostname
+                td #{sysinfo.hostname}
+              tr
+                td Memory
+                td #{sysinfo.memory}
+            br
+            p.topics Total Memory Usage
+            #container(style='width: 700px; height:300px; postion:relative; left:0; margin: 0')
+            br
+            p.topics Heap Memory
+            #psgrapgh(style='width: 700px; height:300px; postion:relative; left:0; margin: 0')
+      #bottombar

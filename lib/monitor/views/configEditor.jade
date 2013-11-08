@@ -22,40 +22,40 @@ html
         #zenith
           img(src='images/z3.png')
       #minibar1
-      #minibar2
-      #leftframe
-        a(href='sysInfo')
-          div.link System Status
-        a(href='/requestInfo')
-          div.link ESB Status
-        div.link(onClick='makeVisible("configOp");')|Configurations
-        ul#configOp 
-          li 
-            a(href='/serverConfig')
-              div.link Server Configuration
-          li
-            a(href='/eventConfig')
-              div.link Events Configuration
-          li
-            a(href='/logConfig')
-              div.link Log Configuration
-          li
-            a(href='/proxyConfig')
-              div.link Proxy Configuration
-          li
-            a(href='/zenithConfig')
-              div.link Zenith Configuration
-      #rightframe
-        div
-          p.topics #{topic}
-          pre#editor
-            |#{configData}
-          script.
-            var editor = ace.edit("editor");
-            editor.setTheme("ace/theme/dawn");
-            editor.getSession().setMode("ace/mode/"+'#{type}');         
-            function update(){
-              updateConfig('#{url}',editor.getValue());
-            } 
-          button(type='button', onclick="update();") Save
-                
+      #main
+        #leftframe
+          a(href='sysInfo')
+            div.link System Status
+          a(href='/requestInfo')
+            div.link ESB Status
+          div.link(onClick='makeVisible("configOp");')|Configurations
+          ul#configOp 
+            li 
+              a(href='/serverConfig')
+                div.link Server Configuration
+            li
+              a(href='/eventConfig')
+                div.link Events Configuration
+            li
+              a(href='/logConfig')
+                div.link Log Configuration
+            li
+              a(href='/proxyConfig')
+                div.link Proxy Configuration
+            li
+              a(href='/zenithConfig')
+                div.link Zenith Configuration
+        #rightframe
+          div
+            p.topics #{topic}
+            pre#editor
+              |#{configData}
+            script.
+              var editor = ace.edit("editor");
+              editor.setTheme("ace/theme/dawn");
+              editor.getSession().setMode("ace/mode/"+'#{type}');         
+              function update(){
+                updateConfig('#{url}',editor.getValue());
+              } 
+            button(type='button', onclick="update();") Save
+      #bottombar           
