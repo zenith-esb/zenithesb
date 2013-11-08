@@ -1,7 +1,5 @@
 #header{
-	width: 96%; 
-	margin-left:2%;
-	margin-right:2%;
+	width: 100%; 
 	height: 130px;
 	vertical-align:middle;
 	background: rgb(73,155,234); /* Old browsers */
@@ -15,23 +13,17 @@
 
 }
 #minibar1{
-	width: 16%; 
+	width: 100%; 
 	float: left;
-	margin-left:2%;
 	height: 13px;
 	background-color: #E1E7EB;
-	
 }
-#minibar2{
-	width: 80%; 
-	float: left;
-	margin-right:2%;
-	height: 10px;
-	background-color: #E1E7EB;
-	border-bottom:3px solid #B5C1C9;
-	
+#bottombar{
+  width: 100%; 
+  float: left;
+  height: 30px;
+  background-color: #E1E7EB;
 }
-
 #zenith{
 	font-family:fantasy,cursive;
 	font-size:70px;
@@ -57,25 +49,29 @@
 	margin-left: 10px;
 	margin-right: 20px;
 }
+
+#main{
+	width:100%;
+	float: left;
+	background-color: #E1E7EB;	
+}
 #leftframe{
 	width: 15%;
-	margin-left:2%;
+	height:100%;
 	padding-top:20px;
 	padding-left:5px;
 	padding-right:5px;
 	padding-bottom:20px;
 	float: left;
-	background-color: #E1E7EB;
-	border:3px solid #B5C1C9;
-	border-left:0;
-	border-top:0;
-	border-radius:2px;
 }
 #rightframe{
-	padding-top:20px;
-	padding-left:20px;
+	padding:20px;
+	background-color:white;
 	float: left;
-	width: 78%;
+	width: 80%;
+	height:100%;
+	border:1px solid #B5C1C9;
+  border-radius:2px;
 }
 #page{
 	width:100%;
@@ -98,7 +94,7 @@ a{
 
 .table{
 	font-family:sans-serif;
-	font-size:14px;	
+	font-size:13px;	
 	color:#233F73;
 }
 
@@ -109,14 +105,14 @@ td{
 #gradient-style
 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-	font-size: 14px;
+	font-size: 13px;
 	width: 480px;
 	text-align: left;
 	border-collapse: collapse;
 }
 #gradient-style th
 {
-	font-size: 14px;
+	font-size: 13px;
 	font-weight: normal;
 	padding: 8px;
 	background: #b9c9fe url('table-images/gradhead.png') repeat-x;
@@ -135,7 +131,7 @@ td{
 #gradient-style tfoot tr td
 {
 	background: #C5D8FB;
-	font-size: 12px;
+	font-size: 13px;
 	color: #99c;
 }
 #gradient-style tbody tr:hover td
@@ -147,7 +143,7 @@ td{
 #config-tables
 {
 	font-family: sans-Serif;
-	font-size: 14px;
+	font-size: 13px;
 	color:#6F6C71
 }
 #lefttd{
@@ -155,14 +151,14 @@ td{
 }
 input{
 	font-family: sans-Serif;
-	font-size: 14px;
+	font-size: 13px;
 	color:#233F73
 }
 ul{
     display:block;
     list-style-type:none;
     font-family: sans-Serif;
-    font-size: 14px;
+    font-size: 13px;
     color:#233F73;
     padding:0px;
     margin:0px;
@@ -188,8 +184,8 @@ div.link{
     text-decoration:none;
     color:#233F73;
     font-family:sans-serif;
-    font-size:14px;
-    padding:3px 5px;
+    font-size:13px;
+    padding:2px 2px;
     border:1px solid #546E9C;
     border-radius:2px;
     cursor:pointer;
