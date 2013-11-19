@@ -50,7 +50,7 @@ exports.executeSample = function(zenithMessage, callback){
 				
 		} else {
 				//set the message body to the error message
-			var errMsg = oapErrorMsg.getSOAP11Fault('Error in SAX processing unite.'); 
+			var errMsg = soapErrorMsg.getSOAP11Fault('Error in SAX processing unite.'); 
 			var errZenithMessage = zenithErrorMsg.getZenithErrorMSG(errMsg, 'text/xml', '500');
 			callback(null, errZenithMessage);
 		}

@@ -61,7 +61,7 @@ exports.executeSample = function(zenithMessage, callback) {
 
 	} else {
 		
-		var errMsg = oapErrorMsg.getSOAP11Fault('Invalid EPR value.'); 
+		var errMsg = soapErrorMsg.getSOAP11Fault('Invalid EPR value.'); 
 		var errZenithMessage = zenithErrorMsg.getZenithErrorMSG(errMsg, 'text/xml', '500');
 		callback(null, errZenithMessage);
 

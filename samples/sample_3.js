@@ -50,13 +50,13 @@ exports.executeSample = function(zenithMessage, callback){
 				
 			} else {
 				//set the message body to the error message
-				var errMsg = oapErrorMsg.getSOAP11Fault('Message does not contain \'' + elemValue +'\'.'); 
+				var errMsg = soapErrorMsg.getSOAP11Fault('Message does not contain \'' + elemValue +'\'.'); 
 				var errZenithMessage = zenithErrorMsg.getZenithErrorMSG(errMsg, 'text/xml', '400');
 				callback(null, errZenithMessage);
 			}
 		} else {
 			//error in the saxProcessor
-			var errMsg = oapErrorMsg.getSOAP11Fault('Error in SAX processing unite.'); 
+			var errMsg = soapErrorMsg.getSOAP11Fault('Error in SAX processing unite.'); 
 			var errZenithMessage = zenithErrorMsg.getZenithErrorMSG(errMsg, 'text/xml', '500');
 			callback(null, errZenithMessage);
 		}
