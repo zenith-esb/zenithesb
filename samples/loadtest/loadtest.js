@@ -43,6 +43,49 @@ exports.executeTest = function(zenithMessage, callback){
 	
 };
 
+// new function for loadtesting ..
+exports.executeTestNew = function(zenithMessage, callback){
+	
+	var serviceURL = 'http://192.168.0.1:9000/service/EchoService';//real service url
+	var reqUrl = zenithMessage.transportHeaders.url; //returns url object
+	var testType = {
+	
+		'/services/DirectProxy' : function(){
+		directProxy(zenithMessage, serviceURL, callback);
+		},
+		
+		'/services/CBRProxy' : function(){
+		cbrProxy(zenithMessage, serviceURL, callback);
+		},
+		
+		'/services/CBRTransportHeaderProxy' : function(){
+		cbrTransportHeaderProxy(zenithMessage, serviceURL, callback);
+		},
+	
+		'/services/CBRSOAPHeaderProxy' : function(){
+		cbrSOAPHeaderProxy(zenithMessage, serviceURL, callback);
+		},
+		
+		'/services/XSLTProxy' : function(){
+		xsltProxy(zenithMessage, serviceURL, callback);
+		}
+	};
+		
+		
+	if(testType[reqUrl]){
+	
+		testType[reqUrl]();
+		
+	} else {
+	
+		//unknown request
+		var errMsg = soapErrorMsg.getSOAP11Fault('Invalid EPR value.'); 
+		var errZenithMessage = zenithErrorMsg.getZenithErrorMSG(errMsg, 'text/xml', '500');
+		callback(null, errZenithMessage);
+	}
+	
+};
+
 /**
  * direct proxy
  * @param zenithMessage
