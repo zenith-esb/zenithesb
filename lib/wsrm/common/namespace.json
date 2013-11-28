@@ -1,0 +1,6 @@
+{
+	"soapenv":"http://schemas.xmlsoap.org/soap/envelope/",
+	"wsa":"http://www.w3.org/2005/08/addressing",
+	"wsrm":"http://schemas.xmlsoap.org/ws/2005/02/rm"
+
+}
