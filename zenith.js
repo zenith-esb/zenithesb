@@ -16,18 +16,18 @@ var msgServerStarted = false;
 //Code to run if we're in the master process
 if (cluster.isMaster) {
   // Count the machine's CPUs
-	logger.info('Zenith', ' Starting Zenith ESB .....');
+    logger.info('Zenith', ' Starting Zenith ESB .....');
     var cpuCount = require('os').cpus().length;
 
-	//starting messaging server
-	if(!msgServerStarted){
-		messagingFactory.initialize();
-		msgServerStarted = true;
-	}
-	
+    //starting messaging server
+    if(!msgServerStarted){
+        messagingFactory.initialize();
+        msgServerStarted = true;
+    }
+    
     logger.info('Zenith', ' Starting process(es) on ' + cpuCount +
-    		' core(s)');
-    		
+            ' core(s)');
+            
     // Create a worker for each CPU
     for (var i = 0; i < cpuCount; i += 1) {
         cluster.fork();
@@ -37,30 +37,30 @@ if (cluster.isMaster) {
     cluster.on('exit', function (worker) {
 
         // Replace the dead worker,
-    	logger.info('Zenith', ' Worker ' + worker.id + ' died');
-    	cluster.fork();
+        logger.info('Zenith', ' Worker ' + worker.id + ' died');
+        cluster.fork();
 
     });
-
+    app.monitor.setListener(cluster);
+    app.startDashBoard();
 // Code to run if we're in a worker process
 } else {
-	logger.info('Zenith', ' Starting process on CPU ' + cluster.worker.id );
-	startZenithESB();
+    logger.info('Zenith', ' Starting process on CPU ' + cluster.worker.id );
+    startZenithESB();
 }
 
 /**
  * start an instance of the ESB
  */
 function startZenithESB(){
-	
-	var transports = transportFactory.getTransport(messageFormatter);
-	//starting transports
-	for(x in transports){
-		var server = transports[x].start();
-		app.monitor.Monitor(server,{'collect_all': 'yes', 'top':{'view':3,'limit':100, 'timelimit':1, 'sortby': 'max_time'}});//add server to monitor
-	}
-	
-	
-	app.startDashBoard();
-	
+    
+    var transports = transportFactory.getTransport(messageFormatter);
+    //starting transports
+    for(x in transports){
+        var server = transports[x].start();
+        app.monitor.Monitor(server,{'worker':cluster.isWorker,'collect_all': 'yes', 'top':{'view':3,'limit':100, 'timelimit':1, 'sortby': 'max_time'}});//add server to monitor
+    }
+    
+    
 }
+
