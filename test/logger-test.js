@@ -19,3 +19,4 @@ vows.describe('Zenith message type').addBatch({
 		}
 	}
 }).run();
+

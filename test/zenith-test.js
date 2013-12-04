@@ -8,7 +8,7 @@ var serverConfig = require('../configuration/server_config');
 vows.describe('Zenith entry point').addBatch({
 	'Http Server configuration' : {
 		topic : function() {
-			return serverConfig.httpServerConfig.port;
+			return serverConfig.transports[0].config.port;
 		},
 
 		'we get 8280' : function(topic) {
