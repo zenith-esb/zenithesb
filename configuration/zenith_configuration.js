@@ -10,6 +10,7 @@ var logger = require('../lib/logger');
 var samples = require('../samples/sample_' + SAMPLE_NO);
 
 //var loadtest =  require('../samples/loadtest/loadtest');;
+var sample =  require('../samples/sample_6');
 
 
 function mediate(message, callback){	
@@ -18,7 +19,7 @@ function mediate(message, callback){
 	//samples.executeSample(message, callback);
 
 	//run the load testing scenario
-	loadtest.executeTest(message, callback);
+  sample.executeSample(message, callback);
 	
 	
 }
