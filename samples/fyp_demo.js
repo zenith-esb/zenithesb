@@ -7,6 +7,9 @@ var SUPPORT_LIBS = '../lib/support/';
 var logger = require('../lib/logger');
 var soapErrorMsg = require('../lib/util/errormsg/soap_err_msg');
 var zenithErrorMsg = require('../lib/util/errormsg/zenith_err_msg');
+var XSLT_RES = './resources/xslt/';
+var xslt = require(SUPPORT_LIBS + 'xml/xslt_processor');
+var saxProcessor = require(SUPPORT_LIBS + 'xml/sax_processor');
 
 exports.executeSample = function(zenithMessage, callback){
 	var reqUrl = zenithMessage.transportHeaders.url; //returns url object
@@ -16,6 +19,7 @@ exports.executeSample = function(zenithMessage, callback){
 		 * Scenario for secure http connecton
 		 */
 		var serviceURL = 'http://localhost:9000/RESTServer/rest/balance';
+		
 		logger.debug('SampleConfig', 'EPR: ' + serviceURL);
 		
 		var option = {
@@ -23,10 +27,16 @@ exports.executeSample = function(zenithMessage, callback){
 			};
 				
 		var endpoint = require(SUPPORT_LIBS + 'ws_endpoint');
-			
+		
+		var xsltFile = XSLT_RES + 'balance.xsl';
+		
 		endpoint.callService(zenithMessage, option, function(err,message){		
 			if(!err){
 				
+				var transformedBckMsg = xslt.transformXML(message.body, xsltFile, []);
+				message.body = transformedBckMsg;
+				message.transportHeaders.headers['content-type'] = 'text/html';
+				logger.debug('FYP DEMO', transformedBckMsg);
 				callback(null, message);	
 			} else {
 				//send error message for error situation
