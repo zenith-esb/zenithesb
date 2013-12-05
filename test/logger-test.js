@@ -9,7 +9,7 @@ var logMessage2 = '[2013-11-18 10:38:45.425] [DEBUG] [ServiceView] - Start of Vi
 var logMessage3 = '[2013-11-18 10:39:56.392] [ERROR] [WSEndPoint] - problem with request: connect ECONNREFUSED';
 
 vows.describe('Zenith message type').addBatch({
-	'Http Server configuration' : {
+	'Logger configuration' : {
 		topic : function() {
 			return logger.logLevel;
 		},
