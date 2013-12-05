@@ -13,7 +13,7 @@ exports.executeSample = function(zenithMessage, callback){
 
 	if(reqUrl.pathname === '/restservices/balance/'){
 		/**
-		 * Scenario for
+		 * Scenario for secure http connecton
 		 */
 		var serviceURL = 'http://localhost:9000/RESTServer/rest/balance';
 		logger.debug('SampleConfig', 'EPR: ' + serviceURL);
@@ -38,7 +38,10 @@ exports.executeSample = function(zenithMessage, callback){
 			});	
 		
 	} else if(reqUrl.pathname === '/restservices/timetable/'){
-		
+		/**
+		 * Scenario for ESB-to-ESB communication
+		 */
+		// request url for another ESB
 		var serviceURL = 'http://localhost:9000/RESTServer/rest/timetable';
 		logger.debug('SampleConfig', 'EPR: ' + serviceURL);
 		
