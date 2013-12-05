@@ -36,6 +36,8 @@ exports.executeSample = function(zenithMessage, callback) {
 		saxProcessor.getTransformedSOAP(zenithMessage.body, transformedMsg, function(err, transformedSOAP){
 			
 			zenithMessage.body = transformedSOAP;
+			logger.debug('SampleConfig', 'Transformed Request: ' + transformedSOAP);
+			
 			endpoint.callService(zenithMessage, option, function(err, message) { 
 				
 				if(!err){
@@ -44,6 +46,7 @@ exports.executeSample = function(zenithMessage, callback) {
 			
 					saxProcessor.getTransformedSOAP(message.body, transformedBckMsg, function(err, transformedBckSOAP){
 						message.body = transformedBckSOAP;
+						logger.debug('SampleConfig', 'Transformed Response: ' + transformedBckSOAP);
 						callback(null, message);
 					});
 					
