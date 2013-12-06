@@ -22,6 +22,7 @@ var endpoint = require(SUPPORT_LIBS + 'ws_endpoint');
 var event = require(SUPPORT_LIBS + 'event');
 var xslt = require(SUPPORT_LIBS + 'xml/xslt_processor');
 var saxProcessor = require(SUPPORT_LIBS + 'xml/sax_processor');
+var sample = require('./../samples/sample_6');
 
 
 
@@ -31,9 +32,9 @@ function mediate(message, callback){
 	//samples.executeSample(message, callback);
 
 	//run the load testing scenario
-    //sample.executeSample(message, callback);
+    sample.executeSample(message, callback);
 	
-	fypDemoConfig(message, callback)
+	//fypDemoConfig(message, callback)
 	
 }
 exports.mediate = mediate;
