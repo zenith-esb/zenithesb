@@ -8,6 +8,7 @@ var logMessage1 = '[2013-11-18 10:37:14.588] [INFO] [Zenith] -  Starting Zenith 
 var logMessage2 = '[2013-11-18 10:38:45.425] [DEBUG] [ServiceView] - Start of View method';
 var logMessage3 = '[2013-11-18 10:39:56.392] [ERROR] [WSEndPoint] - problem with request: connect ECONNREFUSED';
 
+//Test the message type
 vows.describe('Zenith message type').addBatch({
 	'Logger configuration' : {
 		topic : function() {
